@@ -12,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 public class CustomEditTextView extends androidx.appcompat.widget.AppCompatEditText {
-
     public String expectedAnswer = "Marega";
     private boolean isWrong = false;
     private int color_wrong = Color.RED;
@@ -21,32 +20,19 @@ public class CustomEditTextView extends androidx.appcompat.widget.AppCompatEditT
 
     public CustomEditTextView(@NonNull Context context) {
         super(context);
-        this.expectedAnswer = "";
     }
 
     public CustomEditTextView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        this.expectedAnswer = "";
     }
 
     public CustomEditTextView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        this.expectedAnswer = "";
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
-
-       /* if (isWrong){
-            Paint p = new Paint();
-            p.setColor(color_wrong);
-            p.setStrokeWidth(100);
-            canvas.drawLine(0, this.getY(), this.getWidth(), this.getHeight(), p);
-            canvas.drawLine(0, this.getHeight(), this.getWidth(), this.getY(), p);
-        }*/
         super.onDraw(canvas);
-        if (isWrong){
-        }
     }
 
     public boolean isWrong() {
@@ -86,11 +72,8 @@ public class CustomEditTextView extends androidx.appcompat.widget.AppCompatEditT
         }
         if (!expectedAnswer.equalsIgnoreCase(text != null ? text.toString() : "")){
             this.setBorderColor(this.color_neutral);
-            return;
         }
-        this.setBorderColor(this.color_wrong);
     }
-
     private void setBorderColor(int color) {
         GradientDrawable border = new GradientDrawable();
         border.setColor(Color.BLACK);
